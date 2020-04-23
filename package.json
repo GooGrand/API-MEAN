@@ -1,0 +1,27 @@
+{
+  "name": "proj-angular",
+  "version": "1.0.0",
+  "description": "fullstack app with angular and express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "server": "nodemon index"
+  },
+  "keywords": [
+    "express",
+    "angular"
+  ],
+  "author": "Nikita",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.9",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
