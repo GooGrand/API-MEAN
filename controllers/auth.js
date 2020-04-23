@@ -2,13 +2,36 @@ const bcrypt = require('bcryptjs')
 const User = require('../models/User')
 
 
-module.exports.login = function (req, res) {
-    res.json({
-        login: {
-            email: req.body.email,
-            password: req.body.password
+module.exports.login = async function (req, res) {
+   // send email pasw check it, then throw err or continue
+
+    const candidate = await User.findOne({email: req.body.email})
+
+    if (candidate) {
+        // check passw, user existing
+
+        const passwordResult = bcrypt.compareSync(req.body.password, candidate.password)
+        if (passwordResult) {
+            //Generate Token
+
+
+            
+        } else {
+            //throw err
+
+            res.status(401).json({
+                message: 'Password is not correct.'
+            })
         }
-    })
+
+    } else {
+        // user is not existing, err
+
+        res.status(404).json({
+            message: 'user is not existing'
+        })
+    }
+
 }
 
 module.exports.register = async function (req, res) {
