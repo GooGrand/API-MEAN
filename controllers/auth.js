@@ -14,7 +14,7 @@ module.exports.login = async function (req, res) {
         if (passwordResult) {
             //Generate Token
 
-
+            
             
         } else {
             //throw err
